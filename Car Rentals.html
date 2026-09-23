@@ -1,0 +1,1010 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM CAR Rentals | Velachery Chennai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #0d6efd;
+            --accent-dark: #0a58ca;
+            --accent-soft: rgba(13, 110, 253, 0.10);
+            --accent-soft-strong: rgba(13, 110, 253, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background: rgba(4, 13, 29, 0.96);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .navbar {
+            width: 90%;
+            max-width: 1250px;
+            min-height: 75px;
+            margin: auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-soft-strong);
+            color: var(--accent);
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        .logo h2 {
+            font-size: 21px;
+            margin: 0;
+        }
+
+        .logo h2 span {
+            color: var(--accent);
+        }
+
+        .logo small {
+            display: block;
+            color: #cbd5e1;
+            font-size: 8px;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 12px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .book-btn {
+            padding: 12px 21px;
+            color: var(--accent);
+            background: transparent;
+            border: 1px solid var(--accent);
+            border-radius: 7px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .book-btn:hover {
+            background: var(--accent-soft);
+            transform: translateY(-2px);
+            color: var(--accent-dark);
+        }
+
+        .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .footer-brand-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--accent-soft-strong);
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .footer-brand .text-warning {
+            color: var(--accent) !important;
+        }
+
+        .footer-brand small {
+            display: block;
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: #d1d5db;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(90deg, rgba(2, 8, 23, .97), rgba(2, 8, 23, .70), rgba(2, 8, 23, .25)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            padding-top: 70px;
+            color: white;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 9px 15px;
+            margin-bottom: 25px;
+            color: var(--accent);
+            border: 1px solid rgba(13, 110, 253, .35);
+            background: var(--accent-soft);
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            font-size: clamp(48px, 7vw, 85px);
+            line-height: .98;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text {
+            max-width: 550px;
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image,
+        .about-image,
+        .feature-image,
+        .car-card-image,
+        .about-zoom,
+        .feature-zoom {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .hero-image {
+            height: 500px;
+        }
+
+        .about-image,
+        .about-zoom {
+            height: 420px;
+        }
+
+        .feature-image,
+        .feature-zoom {
+            height: 440px;
+        }
+
+        .car-card-image {
+            height: 220px;
+        }
+
+        .about-zoom,
+        .feature-zoom {
+            animation: imageReveal 1.2s ease-out;
+        }
+
+        .about-zoom:hover,
+        .feature-zoom:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.12);
+        }
+
+        .card {
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.10) !important;
+        }
+
+        .card:hover .hero-image,
+        .card:hover .about-image,
+        .card:hover .feature-image,
+        .card:hover .car-card-image {
+            transform: scale(1.08);
+        }
+
+        .carousel-card {
+            animation: fadeUp 0.8s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageReveal {
+            from {
+                opacity: 0;
+                transform: translateY(8px) scale(0.99);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .section-title {
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .text-warning,
+        .btn-warning,
+        .bg-warning,
+        .badge.bg-warning {
+            color: var(--accent) !important;
+            background-color: transparent !important;
+            border-color: var(--accent) !important;
+        }
+
+        .btn-warning:hover,
+        .btn-warning:focus,
+        .btn-warning:active {
+            background-color: var(--accent-soft) !important;
+            border-color: var(--accent-dark) !important;
+            color: var(--accent-dark) !important;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            color: var(--accent) !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light text-dark">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container px-0">
+                <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#home"
+                    aria-label="SM Car Rentals home">
+                    <span class="logo-icon">🚗</span>
+                    <span class="logo-text d-flex flex-column align-items-start">
+                        <span class="fw-bold">SM <span class="text-warning">Car</span></span>
+                        <small class="text-white-50 text-uppercase"
+                            style="font-size: 9px; letter-spacing: 2px;">Rentals</small>
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cars">Cars</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item ms-lg-2"><a href="Car Registration.html"
+                                class="btn btn-warning fw-semibold book-btn">Book Now</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tag">PREMIUM CAR RENTALS • VELACHERY</p>
+            <h1>Drive Your <span>Journey</span> With Us.</h1>
+            <p class="hero-text">
+                Welcome to SM CAR Rentals, Velachery, Chennai. Choose from our comfortable and reliable cars
+                for city travel, family trips and outstation journeys.
+            </p>
+            <div class="hero-buttons">
+                <a href="#cars" class="btn btn-warning btn-lg fw-semibold">Explore Cars →</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg">Enquire Now</a>
+            </div>
+            <div class="row mt-4 g-3">
+                <div class="col-4">
+                    <div class="bg-white bg-opacity-10 rounded p-3 text-center border border-light-subtle">
+                        <h3 class="fw-bold text-warning mb-1">13+</h3>
+                        <small class="text-white-50">Car Models</small>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="bg-white bg-opacity-10 rounded p-3 text-center border border-light-subtle">
+                        <h3 class="fw-bold text-warning mb-1">24/7</h3>
+                        <small class="text-white-50">Support</small>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="bg-white bg-opacity-10 rounded p-3 text-center border border-light-subtle">
+                        <h3 class="fw-bold text-warning mb-1">100%</h3>
+                        <small class="text-white-50">Customer Focus</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-5">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FyJTIwcmVudGFsfGVufDB8fDB8fHww"
+                            class="about-image img-fluid rounded shadow about-zoom" alt="SM CAR Rentals">
+                        <div class="position-absolute bottom-0 start-0 m-3 bg-dark text-white rounded p-3 shadow">
+                            <small class="text-warning d-block">FOUNDER & OWNER</small>
+                            <h5 class="mb-0">Jayasurya R</h5>
+                            <small>SM CAR Rentals</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <p class="section-title">ABOUT SM CAR RENTALS</p>
+                    <h2 class="fw-bold mb-3">Your Trusted <span class="text-warning">Rental Partner</span></h2>
+                    <p class="text-secondary">SM CAR Rentals is a Chennai-based car rental service serving customers
+                        around Velachery and nearby areas.</p>
+                    <p class="text-secondary">Founded by <strong>Jayasurya R</strong>, our goal is to provide a simple,
+                        comfortable and customer-friendly car rental experience.</p>
+                    <div class="row g-2 mt-3">
+                        <div class="col-sm-6">
+                            <div class="bg-light rounded p-2 fw-semibold">✓ Well Maintained Cars</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-light rounded p-2 fw-semibold">✓ Comfortable Vehicles</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-light rounded p-2 fw-semibold">✓ Easy Booking</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-light rounded p-2 fw-semibold">✓ Velachery, Chennai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title">OUR SERVICES</p>
+                <h2 class="fw-bold">Travel Your Way. <span class="text-warning">Choose Your Ride.</span></h2>
+                <p class="text-secondary mt-3">Flexible rental solutions for your different travel requirements.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="display-4 mb-3">🚗</div>
+                        <h4>Self Drive</h4>
+                        <p class="text-secondary mb-0">Enjoy the freedom and flexibility of driving your preferred
+                            rental car.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="display-4 mb-3">👨‍✈️</div>
+                        <h4>Driver Service</h4>
+                        <p class="text-secondary mb-0">Travel comfortably with driver-assisted rental options.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="display-4 mb-3">🛣️</div>
+                        <h4>Outstation Trips</h4>
+                        <p class="text-secondary mb-0">Plan family trips and road journeys from Chennai to nearby
+                            destinations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="display-4 mb-3">🏢</div>
+                        <h4>Corporate Travel</h4>
+                        <p class="text-secondary mb-0">Convenient vehicle solutions for business and corporate
+                            requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cars" class="py-5 bg-white">
+        <div class="container">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end mb-4 gap-3">
+                <div>
+                    <p class="section-title">OUR FLEET</p>
+                    <h2 class="fw-bold">Find Your <span class="text-warning">Perfect Car</span></h2>
+                </div>
+                <p class="text-secondary mb-0">Choose from hatchbacks, sedans, SUVs and family cars according to your
+                    travel needs.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5YkPfEs7pSHIGuVbb3UaNql9jWFhS9BZTDiLn3rxzvb_MpxAhQAFzl9M&s=10"
+                            class="card-img-top car-card-image" alt="Maruti Ertiga">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Maruti Ertiga</h5>
+                                <span class="badge bg-warning text-dark">★ 4.8</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">7 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹2,000</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Baleno/10492/1753944173342/exterior-image-164.jpg"
+                            class="card-img-top car-card-image" alt="Maruti Baleno">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Maruti Baleno</h5>
+                                <span class="badge bg-warning text-dark">★ 4.7</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹1,500</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF_gLrSC9O253w5JpDisgkLetMfz0xdqoJDvu4GyXqkw&s"
+                            class="card-img-top car-card-image" alt="Nissan Magnite">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Nissan Magnite</h5>
+                                <span class="badge bg-warning text-dark">★ 4.8</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹1,700</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/2022_Tata_Tiago_XZA%2B_front_20230512.jpg/1280px-2022_Tata_Tiago_XZA%2B_front_20230512.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+                            class="card-img-top car-card-image" alt="Tata Tiago">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Tata Tiago</h5>
+                                <span class="badge bg-warning text-dark">★ 4.6</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹1,400</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmvWuxurC8Jue94EK8Ngomtf-m-tRZL6vwz8T1YllyAZP0mnodGx5Orlc&s=10"
+                            class="card-img-top car-card-image" alt="Swift Dzire">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Swift Dzire</h5>
+                                <span class="badge bg-warning text-dark">★ 4.7</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹1,500</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://i.ytimg.com/vi/-b8_jurVh9c/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDj00cPj2BBHadsCEkJbbpqKwGSQw"
+                            class="card-img-top car-card-image" alt="Renault Triber">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Renault Triber</h5>
+                                <span class="badge bg-warning text-dark">★ 4.7</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">7 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹1,700</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://cdn-s3.autocarindia.com/legacy/cdni/Galleries/20240116012509__Creta%20First%20Look%20Web%20Resized%20and%20Watermarked._001.jpeg?w=728&q=75&fm=auto"
+                            class="card-img-top car-card-image" alt="Hyundai Creta">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Hyundai Creta</h5>
+                                <span class="badge bg-warning text-dark">★ 4.9</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹2,200</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqd97u5k5wEa_kvG_tLPmH988CeRzzRy_jaLd12AG47_7IEoneFS4328o&s=10"
+                            class="card-img-top car-card-image" alt="Taisor Automatic">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Taisor</h5>
+                                <span class="badge bg-warning text-dark">★ 4.9</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Automatic</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹2,200</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://www.driveitcar.com/images/taisor-31.jpg" class="card-img-top car-card-image"
+                            alt="Taisor Manual">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Taisor</h5>
+                                <span class="badge bg-warning text-dark">★ 4.9</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹2,200</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/i20/11092/1755058597906/front-view-118.jpg?imwidth=420&impolicy=resize"
+                            class="card-img-top car-card-image" alt="I20">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">I20</h5>
+                                <span class="badge bg-warning text-dark">★ 4.9</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹2,200</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://www.motorbeam.com/wp-content/uploads/Toyota-Rumion-E-Base-Variant.jpg"
+                            class="card-img-top car-card-image" alt="Rumion">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Rumion</h5>
+                                <span class="badge bg-warning text-dark">★ 4.9</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹2,200</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://i.pinimg.com/736x/83/31/f1/8331f1fcb9ab3f6e8c3403edd005d65a.jpg"
+                            class="card-img-top car-card-image" alt="KIA Carens">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">KIA Carens</h5>
+                                <span class="badge bg-warning text-dark">★ 4.9</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">7 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹3,200</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden carousel-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/2022_Hyundai_Venue_Preferred_in_Polar_White%2C_Front_Right%2C_09-12-2023.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+                            class="card-img-top car-card-image" alt="Hyundai Venue">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Hyundai Venue</h5>
+                                <span class="badge bg-warning text-dark">★ 4.8</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-light text-dark border">5 Seats</span>
+                                <span class="badge bg-light text-dark border">Manual</span>
+                                <span class="badge bg-light text-dark border">Petrol</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <small class="text-secondary d-block">Starting from</small>
+                                    <strong class="fs-5">₹1,900</strong><small class="text-secondary">/day</small>
+                                </div>
+                                <a href="#contact" class="btn btn-dark">Book →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <p class="section-title">WHY SM CAR RENTALS</p>
+                    <h2 class="fw-bold mb-3">More Than <span class="text-warning">Just A Car</span></h2>
+                    <p class="text-secondary mb-4">We focus on making your rental experience convenient, comfortable and
+                        simple.</p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="bg-white rounded p-3 shadow-sm h-100">
+                                <div class="text-warning fw-bold mb-2">01</div>
+                                <h5>Quality Cars</h5>
+                                <p class="text-secondary mb-0">Comfortable and carefully maintained rental vehicles.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-white rounded p-3 shadow-sm h-100">
+                                <div class="text-warning fw-bold mb-2">02</div>
+                                <h5>Easy Booking</h5>
+                                <p class="text-secondary mb-0">Simple enquiry and booking process.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-white rounded p-3 shadow-sm h-100">
+                                <div class="text-warning fw-bold mb-2">03</div>
+                                <h5>Customer First</h5>
+                                <p class="text-secondary mb-0">Service designed around customer convenience.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-white rounded p-3 shadow-sm h-100">
+                                <div class="text-warning fw-bold mb-2">04</div>
+                                <h5>Velachery Based</h5>
+                                <p class="text-secondary mb-0">Serving Velachery and nearby Chennai areas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://content.jdmagicbox.com/comp/def_content/car_hire/default-car-hire-3-250.jpg"
+                        class="feature-image img-fluid rounded shadow feature-zoom" alt="Rental car">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <p class="section-title">CONTACT US</p>
+                    <h2 class="fw-bold mb-3">Ready To <span class="text-warning">Drive?</span></h2>
+                    <p class="text-secondary">Send us your rental requirements and our team will get back to you.</p>
+
+                    <div class="d-flex gap-3 mb-3 align-items-start">
+                        <div class="fs-4">📍</div>
+                        <div>
+                            <small class="text-uppercase text-secondary d-block">Location</small>
+                            <strong>Velachery, Chennai, Tamil Nadu</strong>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 mb-3 align-items-start">
+                        <div class="fs-4">👤</div>
+                        <div>
+                            <small class="text-uppercase text-secondary d-block">Founder & Owner</small>
+                            <strong>Jayasurya R</strong>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 align-items-start">
+                        <div class="fs-4">📞</div>
+                        <div>
+                            <small class="text-uppercase text-secondary d-block">Phone</small>
+                            <strong>+91 XXXXX XXXXX</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <form action="https://wa.me/919XXXXXXXXX" method="get" target="_blank"
+                        class="bg-light p-4 rounded shadow-sm border">
+                        <input type="hidden" name="text"
+                            value="Hello SM CAR Rentals, I would like to make an enquiry.\n\nName: \nPhone: \nCar: \nPickup date: \nTrip details: ">
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Your Name</label>
+                            <input id="customerName" name="customerName" type="text" class="form-control"
+                                placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerPhone" class="form-label">Phone Number</label>
+                            <input id="customerPhone" name="customerPhone" type="tel" class="form-control"
+                                placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="carChoice" class="form-label">Select Your Car</label>
+                            <select id="carChoice" name="carChoice" class="form-select" required>
+                                <option value="">Select Your Car</option>
+                                <option>Maruti Ertiga</option>
+                                <option>Maruti Baleno</option>
+                                <option>Nissan Magnite</option>
+                                <option>Tata Tiago</option>
+                                <option>Swift Dzire</option>
+                                <option>Renault Triber</option>
+                                <option>Hyundai Creta</option>
+                                <option>Hyundai Venue</option>
+                                <option>Kia Carens</option>
+                                <option>Toyota Innova</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pickupDate" class="form-label">Pickup Date</label>
+                            <input id="pickupDate" name="pickupDate" type="date" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tripDetails" class="form-label">Trip Details</label>
+                            <textarea id="tripDetails" name="tripDetails" class="form-control" rows="4"
+                                placeholder="Tell us about your trip..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-lg w-100 fw-semibold">Send Enquiry on WhatsApp
+                            →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-brand mb-2">
+                        <span class="footer-brand-icon">🚗</span>
+                        <span class="d-flex flex-column align-items-start">
+                            <span class="fw-bold text-white">SM <span class="text-warning">Car</span></span>
+                            <small class="text-white-50">RENTALS</small>
+                        </span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional car rental service in Velachery, Chennai.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="text-white mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-secondary text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-secondary text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="#cars" class="text-secondary text-decoration-none">Our Cars</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-secondary text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="text-white mb-3">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#services" class="text-secondary text-decoration-none">Self Drive</a>
+                        </li>
+                        <li class="mb-2"><a href="#services" class="text-secondary text-decoration-none">Driver
+                                Service</a></li>
+                        <li class="mb-2"><a href="#services" class="text-secondary text-decoration-none">Outstation</a>
+                        </li>
+                        <li class="mb-2"><a href="#services" class="text-secondary text-decoration-none">Corporate</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="text-white mb-3">Location</h5>
+                    <p class="text-secondary mb-1">Velachery</p>
+                    <p class="text-secondary mb-1">Chennai</p>
+                    <p class="text-secondary mb-1">Tamil Nadu</p>
+                    <p class="text-secondary mb-0">India</p>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-4 pt-3 text-center text-secondary small">
+                © 2026 SM CAR Rentals. All Rights Reserved.<br>
+                Founded by Jayasurya R | Velachery, Chennai
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
