@@ -1,0 +1,144 @@
+:root {
+  --ink: #102a43;
+  --muted: #607d8b;
+  --cream: #f3f8fc;
+  --green: #1769aa;
+  --lime: #8fd3f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "DM Sans", sans-serif;
+}
+
+.login-shell {
+  min-height: 100vh;
+}
+
+.visual-panel {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(145deg, rgba(12, 55, 91, 0.96), rgba(18, 78, 120, 0.82)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85")
+      center/cover;
+}
+
+.visual-panel::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  right: -150px;
+  bottom: -170px;
+  border: 1px solid rgba(214, 228, 107, 0.45);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 55px rgba(214, 228, 107, 0.08),
+    0 0 0 110px rgba(214, 228, 107, 0.05);
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background: var(--lime);
+  border-radius: 13px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.display-font {
+  font-family: "Playfair Display", serif;
+}
+
+.form-panel {
+  background: var(--cream);
+}
+
+.login-card {
+  max-width: 440px;
+  width: 100%;
+}
+
+.form-control {
+  min-height: 54px;
+  color: var(--ink);
+  border: 1px solid #cbd9e3;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.form-control:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(31, 92, 75, 0.12);
+}
+
+.input-group .form-control {
+  border-right: 0;
+}
+
+.input-group .btn {
+  border: 1px solid #cbd9e3;
+  border-left: 0;
+  background: #fff;
+}
+
+.input-group:focus-within .btn {
+  border-color: var(--green);
+}
+
+.btn-primary {
+  min-height: 54px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--green);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #0f4f86;
+}
+
+.form-check-input:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #0f4f86;
+  text-decoration: underline;
+}
+
+.quote {
+  max-width: 460px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 767.98px) {
+  .visual-panel {
+    min-height: 360px;
+  }
+
+  .form-panel {
+    min-height: 620px;
+  }
+}
